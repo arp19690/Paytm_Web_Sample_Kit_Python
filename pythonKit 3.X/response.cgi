@@ -6,7 +6,7 @@ import base64
 import json
 import requests
 
-print "Content-type: text/html\n"
+print("Content-type: text/html\n")
 MERCHANT_KEY = 'kbzk1DSbJiV_O3p5';
 import cgi
 
@@ -23,12 +23,12 @@ if 'GATEWAYNAME' in respons_dict:
 		respons_dict['BANKNAME'] = 'null';
 
 verify = Checksum.verify_checksum(respons_dict, MERCHANT_KEY, checksum)
-print verify
+print(verify)
 
 if verify:
 	if respons_dict['RESPCODE'] == '01':
-		print "order successful";
+		print("order successful");
 	else:
-		print "order unsuccessful because"+respons_dict['RESPMSG'];
+		print("order unsuccessful because"+respons_dict['RESPMSG']);
 else: 
-	print "order unsuccessful because"+respons_dict['RESPMSG'];
+	print ("order unsuccessful because"+respons_dict['RESPMSG']);
